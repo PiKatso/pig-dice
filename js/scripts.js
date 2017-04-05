@@ -6,7 +6,6 @@ var dieRoll = function() {
 }
 
 
-
 //Front End//
 $(document).ready(function() {
 
@@ -25,14 +24,20 @@ $(document).ready(function() {
       console.log("what happened!?")
     }
 
-
     $("#turn-roll").append(newRoll + ", ");
     $("#turn-score").text("");
     $("#turn-score").append(turnTotal);
   });
 
   $("#holdBtn").click(function(){
-    $("#player-total").append("hold pressed");
+
+    playerTotal += turnTotal;
+    // reset turn-total for a new die roll
+    turnTotal = 0;
+    $("#turn-roll").text("");
+    $("#turn-score").text("");
+    $("#player-total").text("");
+    $("#player-total").append(playerTotal);
   });
 
 });
