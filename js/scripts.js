@@ -6,16 +6,29 @@ var dieRoll = function() {
 }
 
 
+
 //Front End//
 $(document).ready(function() {
 
-  var holdTotal = 0;
+  var playerTotal = 0;
+  var turnTotal = 0;
 
   $("#rollBtn").click(function(){
+
     var newRoll = dieRoll();
-    holdTotal = newRoll + holdTotal;
+
+    if ( newRoll === 1 ) {
+      turnTotal = 0;
+    } else if ( newRoll != 1) {
+      turnTotal = newRoll + turnTotal;
+    } else {
+      console.log("what happened!?")
+    }
+
+
     $("#turn-roll").append(newRoll + ", ");
-    $("#turn-score").append(holdTotal);
+    $("#turn-score").text("");
+    $("#turn-score").append(turnTotal);
   });
 
   $("#holdBtn").click(function(){
