@@ -18,13 +18,14 @@ $(document).ready(function() {
 
     if ( newRoll === 1 ) {
       turnTotal = 0;
+      $("#turn-roll").text("0, ");
     } else if ( newRoll != 1) {
       turnTotal = newRoll + turnTotal;
+      $("#turn-roll").append(newRoll + ", ");
     } else {
       console.log("what happened!?")
     }
 
-    $("#turn-roll").append(newRoll + ", ");
     $("#turn-score").text("");
     $("#turn-score").append(turnTotal);
   });
@@ -38,6 +39,15 @@ $(document).ready(function() {
     $("#turn-score").text("");
     $("#player-total").text("");
     $("#player-total").append(playerTotal);
+
+    if (playerTotal >= 100) {
+      $("body").addClass("winner");
+      $("#winner").show();
+    }
+  });
+
+  $("#resetBtn").click(function(){
+    location.reload();
   });
 
 });

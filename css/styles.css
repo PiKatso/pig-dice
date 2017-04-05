@@ -1,3 +1,13 @@
 .jumbotron h1 {
   text-align: center;
 }
+
+.winner {
+  background-color: green;
+}
+
+#winner {
+  text-align: center;
+  font-size: 100px;
+  display: none;
+}
