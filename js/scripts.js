@@ -5,7 +5,6 @@ var dieRoll = function() {
   return Math.floor(Math.random() * 6) + 1;
 }
 
-
 //Front End//
 $(document).ready(function() {
 
@@ -13,8 +12,7 @@ $(document).ready(function() {
   var turnTotal = 0;
 
   $("#rollBtn").click(function(){
-
-    var newRoll = dieRoll();
+    let newRoll = dieRoll();
 
     if ( newRoll === 1 ) {
       turnTotal = 0;
@@ -40,13 +38,13 @@ $(document).ready(function() {
     $("#player-total").text("");
     $("#player-total").append(playerTotal);
 
-    if (playerTotal >= 100) {
+    if (playerTotal >= 100) {       //game over, add class and show winner//
       $("body").addClass("winner");
       $("#winner").show();
     }
   });
 
-  $("#resetBtn").click(function(){
+  $("#resetBtn").click(function(){          //reset page//
     location.reload();
   });
 
