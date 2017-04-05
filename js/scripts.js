@@ -5,15 +5,21 @@ var dieRoll = function() {
   return Math.floor(Math.random() * 6) + 1;
 }
 
+
 //Front End//
 $(document).ready(function() {
 
-  $("#user-roll").click(function(){
-    $("#turn-score").append(dieRoll());
+  var holdTotal = 0;
+
+  $("#rollBtn").click(function(){
+    var newRoll = dieRoll();
+    holdTotal = newRoll + holdTotal;
+    $("#turn-roll").append(newRoll + ", ");
+    $("#turn-score").append(holdTotal);
   });
 
-  $("#user-hold").click(function(){
-    $("#player-total").append("Hold pressed");
+  $("#holdBtn").click(function(){
+    $("#player-total").append("hold pressed");
   });
 
 });
